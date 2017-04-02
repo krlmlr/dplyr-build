@@ -1,2 +1,4 @@
 /pkg
 .Rproj.user
+/.idea
+/cmake-build-debug
