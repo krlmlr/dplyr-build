@@ -15,7 +15,7 @@ include_directories(src)
 add_definitions(-D__CLION__)
 
 
-file(GLOB SOURCE_FILES src/*.cpp src/*.c)
+file(GLOB SOURCE_FILES RSQLite-pkg/src/*.cpp RSQLite-pkg/src/*.c RSQLite-pkg/src/vendor/sqlite3/*.c)
 add_library(RSQLite ${SOURCE_FILES})
 
 add_custom_target(
