@@ -1,3 +1,16 @@
 LTO=-O0
 LDFLAGS:=$(LDFLAGS) -fuse-ld=gold
-CPPFLAGS:=-DPLOGR_ENABLE
+
+CXX_SOURCES = $(wildcard *.cpp)
+DEPFILES = ${CXX_SOURCES:.cpp=.d}
+
+all: ${DEPFILES}
+include ${DEPFILES}
+
+PKG_CPPFLAGS := ${PKG_CPPFLAGS} -DPLOGR_ENABLE
+PKG_CXXFLAGS := ${PKG_CXXFLAGS} -Winvalid-pch
+
+pch.h.gch: pch.h
+	$(CXX) $(ALL_CPPFLAGS) $(ALL_CXXFLAGS) $< -o $@
+
+*.cpp: pch.h.gch
