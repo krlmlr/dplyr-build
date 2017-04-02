@@ -3,6 +3,8 @@ project(RSQLite)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
 
+set(SRC_DIR RSQLite-pkg/src)
+
 set(R_LIBRARY "~/R-library")
 set(R_INCLUDE "/usr/share/R/include")
 
@@ -10,12 +12,12 @@ include_directories(${R_LIBRARY}/Rcpp/include)
 include_directories(${R_LIBRARY}/BH/include)
 include_directories(${R_LIBRARY}/plogr/include)
 include_directories(${R_INCLUDE})
-include_directories(src)
+include_directories(${SRC_DIR})
 
 add_definitions(-D__CLION__)
 
 
-file(GLOB SOURCE_FILES RSQLite-pkg/src/*.cpp RSQLite-pkg/src/*.c RSQLite-pkg/src/vendor/sqlite3/*.c)
+file(GLOB SOURCE_FILES ${SRC_DIR}/*.cpp ${SRC_DIR}/*.c ${SRC_DIR}/vendor/sqlite3/*.c)
 add_library(RSQLite ${SOURCE_FILES})
 
 add_custom_target(
