@@ -1,0 +1,3 @@
+LTO=-O0
+LDFLAGS:=$(LDFLAGS) -fuse-ld=gold
+CPPFLAGS:=-DPLOGR_ENABLE
