@@ -8,9 +8,11 @@ all: ${DEPFILES}
 include ${DEPFILES}
 
 PKG_CPPFLAGS := ${PKG_CPPFLAGS} -DPLOGR_ENABLE
-PKG_CXXFLAGS := ${PKG_CXXFLAGS} -Winvalid-pch
+PKG_CXXFLAGS := ${PKG_CXXFLAGS} -Winvalid-pch -fpch-preprocess
 
 pch.h.gch: pch.h
 	$(CXX) $(ALL_CPPFLAGS) $(ALL_CXXFLAGS) $< -o $@
 
-*.cpp: pch.h.gch
+*.o: pch.h.gch
+
+export CCACHE_SLOPPINESS := pch_defines,time_macros
