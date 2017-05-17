@@ -9,6 +9,7 @@
     <excludeRoots>
       <file path="$PROJECT_DIR$/.lib" />
       <file path="$PROJECT_DIR$/dplyr-pkg/.Rproj.user" />
+      <file path="$PROJECT_DIR$/dplyr-pkg/bisect" />
     </excludeRoots>
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
