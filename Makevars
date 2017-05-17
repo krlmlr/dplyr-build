@@ -8,7 +8,8 @@ all: ${DEPFILES}
 include ${DEPFILES}
 
 PKG_CPPFLAGS := ${PKG_CPPFLAGS} -DPLOGR_ENABLE
-PKG_CXXFLAGS := ${PKG_CXXFLAGS} -Winvalid-pch -fpch-preprocess
+PKG_CXXFLAGS := ${PKG_CXXFLAGS} -Winvalid-pch -fpch-preprocess -Wall -Wextra -pedantic -Werror -Wfatal-errors
+#PKG_CXXFLAGS := ${PKG_CXXFLAGS} -Winvalid-pch -fpch-preprocess -Wall -Wextra -pedantic -Werror -Wconversion -Wfatal-errors
 
 pch.h.gch: pch.h
 	$(CXX) $(ALL_CPPFLAGS) $(ALL_CXXFLAGS) $< -o $@
